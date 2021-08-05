@@ -31,5 +31,5 @@ type: "number", - This is only for field tag and is used to indicate the type. <
 range: [0, null], - range is for type:number to indicate upper and lower bounds. <br>
 rules: ["notEmpty"], - This indicates the method names for a client side validation. <br>
 list: ["Canada", "United States"] - This is only for select tag which is used to display the list of options. <br>
-action: "submit", - This is only for button tags and is used has onClick handler. <br>
+action: "submit", - This is only for button tags and uses onCLick to triiger the action. <br>
 },
