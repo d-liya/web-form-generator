@@ -19,7 +19,7 @@ let functions = {
 export const useFunction = (name) => {
   const store = useStore();
   const resetState = useResetState();
-  const { addForm, goBackForm, goForward, reset } = useFormChange();
+  const { addForm, goBackForm } = useFormChange();
   const updateStore = useUpdateStore();
   const cancel = () => {
     resetState();
