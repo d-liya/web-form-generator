@@ -12,6 +12,7 @@ const notEmpty = (value) => {
 const dofValidator = (value) => {
   if (new Date(value).getTime() > Date.now()) return "Date Of Birth is invalid";
 };
+
 let functions = {
   notEmpty,
   dofValidator,
