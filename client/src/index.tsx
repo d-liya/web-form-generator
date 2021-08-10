@@ -1,9 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "react-bootstrap-typeahead/css/Typeahead.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { store } from "./components/context/formContext";
+import { store } from "./context/formContext";
 import { Provider } from "react-redux";
 ReactDOM.render(
   <React.StrictMode>

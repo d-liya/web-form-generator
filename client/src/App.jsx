@@ -1,18 +1,14 @@
-import Button from "./components/Library/Button";
+import { Button } from "./components";
 import Form from "./components/Form";
-import {
-  useFormChange,
-  useStore,
-  useUpdateStore,
-} from "./components/context/formContext";
+import { useFormChange, useStore, useUpdateStore } from "./context/formContext";
 export const server_url = "http://localhost:3001/";
 function App() {
   const state = useStore();
   const updateStore = useUpdateStore();
   const { addForm } = useFormChange();
-  const onClick = (type) => {
+  const onClick = (formType) => {
     updateStore([], "formIDs");
-    fetch(server_url + type)
+    fetch(server_url + formType)
       .then((res) => res.json())
       .then((res) => {
         updateStore(res.data, res.id);
@@ -22,7 +18,6 @@ function App() {
       })
       .catch((er) => alert(er));
   };
-  console.log(state);
   return !state.UIstate ? (
     <div className="items-center flex justify-center min-h-screen flex-col mx-20 my-10">
       <div className="">

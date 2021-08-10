@@ -1,9 +1,11 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../hooks";
 const initialState = {
   UIstate: false,
   formIDs: [],
   currentForm: "",
+  errorMessages: {},
+  error: false,
 };
 const formReducer = createSlice({
   name: "form",
@@ -25,21 +27,20 @@ export const store = configureStore({
 });
 
 export const useUpdateStore = () => {
-  const dispatch = useDispatch();
-
+  const dispatch = useAppDispatch();
   return (value, name) => dispatch(updateValue({ value, name }));
 };
 export const useResetState = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   return () => dispatch(resetState());
 };
 export const useStore = () => {
-  const state = useSelector((state) => state);
+  const state = useAppSelector((state) => state);
   return state;
 };
 
 export const useFormChange = () => {
-  const state = useSelector((state) => state);
+  const state = useAppSelector((state) => state);
   const updateValue = useUpdateStore();
   const addForm = (id) => {
     if (!state.formIDs.includes(id))

@@ -1,7 +1,4 @@
-import Button from "./Library/Button";
-import Field from "./Library/Field";
-import Header from "./Library/Header";
-import Select from "./Library/Select";
+import { Button, Field, Header, Select, Typeahead } from "./index";
 
 export default function Form({ formData }) {
   const inOrderData =
@@ -21,17 +18,31 @@ export default function Form({ formData }) {
             return (
               <Field
                 key={el.order}
-                name={el.elementName}
+                name={el.description}
                 type={el.type ? el.type : "text"}
                 rules={el.rules}
                 range={el.range}
+                elementName={el.elementName}
               />
             );
           } else if (el.tag === "header") {
-            return <Header text={el.elementName} key={el.order} />;
+            return <Header text={el.description} key={el.order} />;
           } else if (el.tag === "select") {
             return (
-              <Select name={el.elementName} list={el.list} key={el.order} />
+              <Select
+                name={el.description}
+                list={el.list}
+                key={el.order}
+                elementName={el.elementName}
+              />
+            );
+          } else if (el.tag === "typeahead") {
+            return (
+              <Typeahead
+                key={el.order}
+                elementName={el.elementName}
+                name={el.description}
+              />
             );
           }
           return null;
@@ -40,8 +51,8 @@ export default function Form({ formData }) {
           {buttons.map((el) => (
             <Button
               key={el.order}
-              text={el.elementName}
-              variant={el.elementName === "Cancel"}
+              text={el.description}
+              className="m-2"
               action={el.action}
             />
           ))}

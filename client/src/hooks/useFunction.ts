@@ -4,7 +4,7 @@ import {
   useResetState,
   useStore,
   useUpdateStore,
-} from "../components/context/formContext";
+} from "../context/formContext";
 
 const notEmpty = (value) => {
   if (!value) return "This field cannot be empty";
